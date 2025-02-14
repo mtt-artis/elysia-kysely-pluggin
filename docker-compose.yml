@@ -1,0 +1,21 @@
+version: '3'
+services:
+  bun:
+    image: oven/bun:1.2-slim
+    depends_on:
+      - db
+    working_dir: ${PWD}
+    volumes:
+      - .:${PWD}
+    environment:
+      DATABASE_URL: postgresql://postgres:password@db:5432/messenger
+    ports:
+      - "3000:3000"
+    entrypoint: bash
+    tty: true
+  
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: messenger

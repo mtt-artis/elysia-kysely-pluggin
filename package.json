@@ -1,0 +1,30 @@
+{
+  "name": "elysia-kysely-plugin",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun --watch index.ts",
+    "start": "bun index.ts",
+    "fmt": "biome format --write ./src",
+    "migrate": "bun scripts/migrate.ts",
+    "gen": "bun kysely-codegen --camel-case --dialect=postgres --out-file=db.generated.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/pg": "^8.11.11",
+    "biome": "^0.3.3",
+    "kysely-migration-cli": "^0.2.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "^1.2.0",
+    "@elysiajs/static": "^1.2.0",
+    "@elysiajs/swagger": "^1.2.0",
+    "elysia": "^1.2.14",
+    "kysely": "^0.26.3",
+    "kysely-codegen": "^0.11.0",
+    "pg": "^8.13.3"
+  }
+}
